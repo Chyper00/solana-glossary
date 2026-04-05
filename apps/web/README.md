@@ -70,15 +70,12 @@ src/components/    # SearchBar, CategoryFilter, TermCard, graphs, modals, …
 
 ## Deploy (Vercel)
 
-`apps/web/vercel.json` assumes the **Git repo root** is the Vercel project root (commands use `cd apps/web`).
+1. Project **Root Directory**: `apps/web` (monorepo).
+2. `apps/web/vercel.json` sets `npm install`, `npm run build`, and `outputDirectory: .next` (no `cd`).
 
-If you set **Root Directory** to `apps/web` in the Vercel UI, use instead:
+Set **`BASE_URL`** (or `NEXT_PUBLIC_BASE_URL`) to the production origin in project env.
 
-- Install: `pnpm install`
-- Build: `pnpm run build`
-- Output: `.next`
-
-Set **`BASE_URL`** to the production origin in project env.
+For local dev you can still use **pnpm**; add a `package-lock.json` in `apps/web` if you want npm installs on Vercel to match lockfile resolution.
 
 ## Stack
 
